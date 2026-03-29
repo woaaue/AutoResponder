@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
-//сервис для отправки сообщений в телеграмм боте
+//a service for sending messages in a telegram bot
 public class AutoResponder {
 
     private final List<IAutoResponder> responders;
@@ -19,7 +19,7 @@ public class AutoResponder {
         calculateRespond(currentHasMedia, newHasMedia).respond(menuContext, newState, null);
     }
 
-    //для сохранения первого месседжа или ансейва последующего(в целом для сценариев чтобы не оставались ненужные сообщ ввода)
+    //to save the first message or an archive of the next one (in general, for scenarios so that unnecessary messages do not remain)
     public void executeRespond(MenuContext menuContext, IMenuStater newState, boolean saveMessage) {
         BotMessage botMessage = getBotMessage(menuContext);
         boolean currentHasMedia = botMessage != null
